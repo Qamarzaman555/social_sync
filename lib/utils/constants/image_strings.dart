@@ -113,4 +113,9 @@ class AppImages {
   static const String paytm = "assets/icons/payment_methods/paytm.png";
   static const String successfulPaymentIcon =
       "assets/icons/payment_methods/successful_payment_icon.png";
+
+  // -- Posts
+  static const String post1 = "assets/images/content/Picture.jpg";
+  static const String post2 = "assets/images/content/Qamar Zaman profile.jpg";
+  static const String post3 = "assets/images/content/White BG profile.jpg";
 }
