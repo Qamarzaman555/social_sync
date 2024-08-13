@@ -63,7 +63,7 @@ class HomeScreen extends StatelessWidget {
                           // ignore: prefer_const_constructors
                           PostHeader(),
                           SizedBox(height: AppSizes.spaceBtwItems),
-                          // VideoPlayerScreen(),
+                          VideoPlayerScreen(),
                           SizedBox(height: AppSizes.spaceBtwItems),
                           PostFooter()
                         ],
