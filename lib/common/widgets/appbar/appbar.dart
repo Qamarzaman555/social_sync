@@ -19,12 +19,16 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
     super.key,
     this.title,
     this.actions,
+    this.leading,
     this.leadingIcon,
+    this.centerTitle,
     this.leadingOnPressed,
     this.showBackArrow = false,
   });
 
   final Widget? title;
+  final Widget? leading;
+  final bool? centerTitle;
   final bool showBackArrow;
   final IconData? leadingIcon;
   final List<Widget>? actions;
@@ -36,18 +40,20 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: AppSizes.md),
       child: AppBar(
+        centerTitle: centerTitle,
         automaticallyImplyLeading: false,
         leading: showBackArrow
             ? IconButton(
                 onPressed: () => Get.back(),
                 icon: Icon(Iconsax.arrow_left,
                     color: dark ? AppColors.light : AppColors.dark))
-            : leadingIcon != null
-                ? IconButton(
-                    onPressed: leadingOnPressed,
-                    icon: Icon(leadingIcon,
-                        color: dark ? AppColors.light : AppColors.dark))
-                : null,
+            : leading ??
+                (leadingIcon != null
+                    ? IconButton(
+                        onPressed: leadingOnPressed,
+                        icon: Icon(leadingIcon,
+                            color: dark ? AppColors.light : AppColors.dark))
+                    : null),
         title: title,
         actions: actions,
       ),

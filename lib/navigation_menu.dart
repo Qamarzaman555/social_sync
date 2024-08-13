@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
-import 'features/chats/screens/home/home_screen.dart';
-import 'features/chats/screens/news_feeed/news_feed.dart';
+import 'features/chats/screens/home/home.dart';
 import 'features/personalization/screens/settings/settings.dart';
 
 import 'utils/constants/app_colors.dart';
@@ -47,7 +46,7 @@ class NavigationController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
 
   final screens = [
-    const NewsFeed(),
+    const HomeScreen(),
     const HomeScreen(),
     const HomeScreen(),
     const SettingsScreen(),
