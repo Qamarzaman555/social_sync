@@ -1,14 +1,10 @@
 import 'package:get/get.dart';
+import 'package:social_sync/utils/constants/data.dart';
 import 'package:video_player/video_player.dart';
 
 class LessonController extends GetxController {
   VideoPlayerController? videoController;
   RxBool isPlay = false.obs;
-
-  final List<String> videoList = [
-    "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4",
-    "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4"
-  ];
 
   @override
   void onClose() {
@@ -21,7 +17,7 @@ class LessonController extends GetxController {
   }
 
   Future<void> asyncPostLessonData() async {
-    var url = videoList[0];
+    var url = DummyData.videos[0];
     videoController = VideoPlayerController.networkUrl(Uri.parse(url));
 
     videoController?.addListener(_videoPlayerListener);

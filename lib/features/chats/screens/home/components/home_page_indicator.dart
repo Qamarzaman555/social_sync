@@ -20,7 +20,6 @@ class HomeIndicatorWidget extends StatelessWidget {
     final controller = HomeController.instance;
     return Positioned(
       bottom: AppDeviceUtils.getBottomNavigationBarHeight() - 35,
-      left: AppDeviceUtils.getScreenWidth(context) * 0.3,
       child: SmoothPageIndicator(
         effect: JumpingDotEffect(
             dotColor: AppColors.lightContainer,

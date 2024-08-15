@@ -14,6 +14,7 @@ class PostsMedia extends StatelessWidget {
     final controller = Get.put(HomeController());
 
     return Stack(
+      alignment: Alignment.center,
       children: [
         SizedBox(
           height: 240,

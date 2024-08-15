@@ -11,7 +11,7 @@ import 'components/home_header.dart';
 import 'components/post_footer.dart';
 import 'components/post_herder.dart';
 import 'components/posts_media.dart';
-import '../video_player/video.dart';
+import 'components/post_video_player.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
-import 'features/chats/screens/video_player/video.dart';
+import 'features/chats/screens/home/components/post_video_player.dart';
 import 'features/chats/screens/home/home.dart';
 import 'features/personalization/screens/settings/settings.dart';
 

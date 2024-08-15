@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../../utils/constants/data.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../controllers/home_controller.dart';
 
@@ -25,7 +26,7 @@ class PageCountWidget extends StatelessWidget {
           ),
           child: Obx(
             () => Text(
-              "${controller.currentPageIndex.value + 1}/3",
+              "${controller.currentPageIndex.value + 1}/${DummyData.posts.length}",
               style: const TextStyle(color: Colors.black),
             ),
           )),
