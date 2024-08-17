@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'custom_themes/icon_button_theme.dart';
+import 'custom_themes/listtile_theme.dart';
 import 'custom_themes/text_btn_theme.dart';
 import 'custom_themes/themes_imports.dart';
 
@@ -23,6 +25,8 @@ class AppTheme {
     chipTheme: AppChipTheme.lightChipTheme,
     outlinedButtonTheme: AppOutlinedBtnTheme.lightOutlineButtonTheme,
     inputDecorationTheme: AppTextFormFieldTheme.lightInputDecorationTheme,
+    iconButtonTheme: AppIconBtnTheme.lightIconButtonTheme,
+    listTileTheme: AppListTileTheme.lightListTileTheme,
   );
 
   // Customizable light Theme
@@ -42,5 +46,7 @@ class AppTheme {
     chipTheme: AppChipTheme.darkChipTheme,
     outlinedButtonTheme: AppOutlinedBtnTheme.darkOutlineButtonTheme,
     inputDecorationTheme: AppTextFormFieldTheme.darkInputDecorationTheme,
+    iconButtonTheme: AppIconBtnTheme.darkIconButtonTheme,
+    listTileTheme: AppListTileTheme.darkListTileTheme,
   );
 }

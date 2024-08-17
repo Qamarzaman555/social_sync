@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
-import 'features/chats/screens/home/components/post_video_player.dart';
+import 'features/chats/screens/chats/chats.dart';
 import 'features/chats/screens/home/home.dart';
 import 'features/personalization/screens/settings/settings.dart';
 
@@ -31,7 +31,7 @@ class NavigationMenu extends StatelessWidget {
               : Colors.white.withOpacity(0.1),
           destinations: const [
             NavigationDestination(icon: Icon(Iconsax.home), label: 'Home'),
-            NavigationDestination(icon: Icon(Iconsax.shop), label: 'Chats'),
+            NavigationDestination(icon: Icon(Iconsax.message), label: 'Chats'),
             NavigationDestination(
                 icon: Icon(Iconsax.heart), label: 'New Chats'),
             NavigationDestination(icon: Icon(Iconsax.user), label: 'Profile'),
@@ -48,7 +48,7 @@ class NavigationController extends GetxController {
 
   final screens = [
     const HomeScreen(),
-    const VideoPlayerScreen(),
+    const ChatsScreen(),
     const HomeScreen(),
     const SettingsScreen(),
   ];

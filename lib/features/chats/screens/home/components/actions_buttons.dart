@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../utils/helpers/helper_functions.dart';
-
 class ActionIcon extends StatelessWidget {
   const ActionIcon({
     super.key,
@@ -17,10 +15,7 @@ class ActionIcon extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 12),
       child: IconButton(
         onPressed: onPressed,
-        icon: Icon(icon,
-            color: AppHelperFunctions.isDarkMode(context)
-                ? Colors.white
-                : Colors.black),
+        icon: Icon(icon),
       ),
     );
   }
