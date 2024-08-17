@@ -15,7 +15,7 @@ class ChatsScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            /// Header Text
+            // Header Text
             Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: AppSizes.defaultSpace),
@@ -24,8 +24,8 @@ class ChatsScreen extends StatelessWidget {
             ),
             const SizedBox(height: AppSizes.spaceBtwItems),
 
-            /// Chat List
-            const ChatList()
+            // Chat List
+            const ChatList(),
           ],
         ),
       ),
