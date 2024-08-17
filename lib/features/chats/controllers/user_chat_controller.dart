@@ -23,9 +23,9 @@ class ChatsController extends GetxController {
       for (var doc in snapshot.docs) {
         final user = UserModel.fromSnapshot(doc);
         // Add the user to the list if it's not the current user
-        // if (user.uid != currentUserUid) {
-        loadedUsers.add(user);
-        // }
+        if (user.id != currentUserUid) {
+          loadedUsers.add(user);
+        }
       }
       users.value = loadedUsers;
     });
