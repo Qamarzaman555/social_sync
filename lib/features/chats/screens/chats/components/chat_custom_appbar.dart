@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key});
+  const CustomAppBar({super.key, required this.userName});
+  final String userName;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class CustomAppBar extends StatelessWidget {
         elevation: 0,
         centerTitle: true,
         title: Text(
-          'Chatnella',
+          userName,
           style: TextStyle(
             color: Theme.of(context).colorScheme.onSurface,
           ),

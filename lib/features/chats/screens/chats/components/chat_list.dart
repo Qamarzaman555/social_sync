@@ -12,7 +12,7 @@ class ChatList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ChatsController controller = Get.put(ChatsController());
+    final controller = ChatsController.isntance;
 
     return Obx(
       () {
@@ -30,7 +30,8 @@ class ChatList extends StatelessWidget {
           itemCount: controller.users.length,
           itemBuilder: (_, index) {
             return ListTile(
-              onTap: () => Get.to(() => ChatScreen()),
+              onTap: () => Get.to(
+                  () => ChatScreen(userName: controller.users[index].fullName)),
               leading: AppCircularImage(
                 image: controller.users[index].profilePicture,
                 isNetworkImage: true,

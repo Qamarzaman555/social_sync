@@ -8,18 +8,19 @@ import 'chat_input_field.dart';
 import 'friend_chat_bubble.dart';
 
 class ChatScreen extends StatelessWidget {
-  final chatController = Get.put(ChatController());
-
-  ChatScreen({super.key});
+  const ChatScreen({super.key, required this.userName});
+  final String userName;
 
   @override
   Widget build(BuildContext context) {
+    final chatController = Get.put(ChatController());
+
     return Scaffold(
       body: Container(
         color: Theme.of(context).colorScheme.primary.withOpacity(0.2),
         child: Column(
           children: [
-            const CustomAppBar(),
+            CustomAppBar(userName: userName),
             Expanded(
               child: Container(
                 decoration: BoxDecoration(
@@ -42,7 +43,8 @@ class ChatScreen extends StatelessWidget {
                     reverse: true,
                     controller: chatController.scrollController,
                     itemCount: chatController.messageList.length,
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 12),
                     itemBuilder: (context, index) {
                       final message = chatController.messageList[index];
                       return message.uid ==

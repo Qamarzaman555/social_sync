@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../utils/constants/sizes.dart';
+import '../../controllers/user_chat_controller.dart';
 import 'components/chat_list.dart';
 
 class ChatsScreen extends StatelessWidget {
@@ -9,8 +11,10 @@ class ChatsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ChatsController controller = Get.put(ChatsController());
+
     return Scaffold(
-      appBar: chatAppBar(context),
+      appBar: chatAppBar(context, controller),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,9 +36,12 @@ class ChatsScreen extends StatelessWidget {
     );
   }
 
-  AppBar chatAppBar(BuildContext context) {
+  AppBar chatAppBar(BuildContext context, ChatsController controller) {
     return AppBar(
-      title: Text("UserName", style: Theme.of(context).textTheme.headlineSmall),
+      title: Obx(
+        () => Text(controller.currentUser.value?.fullName ?? "User",
+            style: Theme.of(context).textTheme.headlineSmall),
+      ),
       centerTitle: true,
       actions: [IconButton(onPressed: () {}, icon: const Icon(Iconsax.edit))],
     );

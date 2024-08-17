@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../../utils/constants/app_colors.dart';
 import '../../../models/message_bubble.model.dart';
 
 class ChatBubble extends StatelessWidget {
@@ -14,21 +15,19 @@ class ChatBubble extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         constraints:
             BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.7),
-        decoration: BoxDecoration(
-          borderRadius: const BorderRadius.only(
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
             topLeft: Radius.circular(50),
             topRight: Radius.circular(50),
             bottomRight: Radius.circular(50),
           ),
-          color: Theme.of(context).colorScheme.primary,
+          color: AppColors.primary,
         ),
-        child: Text(
-          messageObject.message,
-          style: TextStyle(
-            color: Theme.of(context).colorScheme.onPrimary,
-            fontSize: 16,
-          ),
-        ),
+        child: Text(messageObject.message,
+            style: Theme.of(context)
+                .textTheme
+                .labelMedium!
+                .apply(color: Colors.black)),
       ),
     );
   }

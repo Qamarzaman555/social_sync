@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../utils/constants/app_colors.dart';
 import '../../../models/message_bubble.model.dart';
 
 class FriendChatBubble extends StatelessWidget {
@@ -15,21 +16,16 @@ class FriendChatBubble extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         constraints:
             BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.7),
-        decoration: BoxDecoration(
-          borderRadius: const BorderRadius.only(
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
             topLeft: Radius.circular(50),
             topRight: Radius.circular(50),
             bottomLeft: Radius.circular(50),
           ),
-          color: Theme.of(context).colorScheme.secondary,
+          color: AppColors.secondary,
         ),
-        child: Text(
-          messageObject.message,
-          style: TextStyle(
-            color: Theme.of(context).colorScheme.onSurface,
-            fontSize: 16,
-          ),
-        ),
+        child: Text(messageObject.message,
+            style: Theme.of(context).textTheme.labelMedium),
       ),
     );
   }

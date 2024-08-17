@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 
 class ChatInputField extends StatelessWidget {
   const ChatInputField({super.key, this.onTap, this.controller});
@@ -14,28 +15,26 @@ class ChatInputField extends StatelessWidget {
       child: Row(
         children: [
           IconButton(
-            icon: const Icon(Icons.add_circle, color: Colors.blue),
+            icon: const Icon(Iconsax.add),
             onPressed: () {
               // Handle add button action
             },
           ),
           Expanded(
-            child: TextField(
+            child: TextFormField(
               controller: controller,
-              onSubmitted: onTap,
-              decoration: const InputDecoration(
+              onFieldSubmitted: onTap,
+              decoration: InputDecoration(
                 hintText: 'Message...',
-                border: InputBorder.none,
+                suffixIcon: IconButton(
+                    onPressed: () {
+                      if (controller != null && controller!.text.isNotEmpty) {
+                        onTap?.call(controller!.text);
+                      }
+                    },
+                    icon: const Icon(Iconsax.send1)),
               ),
             ),
-          ),
-          IconButton(
-            icon: const Icon(Icons.send, color: Colors.blue),
-            onPressed: () {
-              if (controller != null && controller!.text.isNotEmpty) {
-                onTap?.call(controller!.text);
-              }
-            },
           ),
         ],
       ),
