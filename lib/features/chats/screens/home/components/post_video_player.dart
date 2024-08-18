@@ -43,7 +43,7 @@ class VideoPlayerScreen extends StatelessWidget {
                       color: Colors.black12,
                       shape: const CircleBorder(),
                       child: Padding(
-                        padding: const EdgeInsets.all(AppSizes.cardRadiusXs),
+                        padding: const EdgeInsets.all(AppSizes.cardRadiusSm),
                         child: Icon(
                           controller.isPlay.value
                               ? Iconsax.pause
