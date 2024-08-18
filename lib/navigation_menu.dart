@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
+import 'features/chats/screens/activity/activity.dart';
 import 'features/chats/screens/chats/chats.dart';
 import 'features/chats/screens/home/home.dart';
 import 'features/personalization/screens/settings/settings.dart';
@@ -32,8 +33,9 @@ class NavigationMenu extends StatelessWidget {
           destinations: const [
             NavigationDestination(icon: Icon(Iconsax.home), label: 'Home'),
             NavigationDestination(icon: Icon(Iconsax.message), label: 'Chats'),
+            NavigationDestination(icon: Icon(Iconsax.add_square), label: 'Add'),
             NavigationDestination(
-                icon: Icon(Iconsax.heart), label: 'New Chats'),
+                icon: Icon(Iconsax.activity), label: 'Activity'),
             NavigationDestination(icon: Icon(Iconsax.user), label: 'Profile'),
           ],
         ),
@@ -49,7 +51,8 @@ class NavigationController extends GetxController {
   final screens = [
     const HomeScreen(),
     const ChatsScreen(),
-    const HomeScreen(),
+    const Scaffold(body: Center(child: Text("AddPost"))),
+    const ActivityScreen(),
     const SettingsScreen(),
   ];
 }

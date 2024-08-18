@@ -10,6 +10,7 @@ class AppText {
   static const String done = "Done";
   static const String submit = "Submit";
   static const String appName = "SocialSync";
+  static const String appActivity = "Activity";
   static const String appSlogan = "Stay in Sync, Stay Connected";
   static const String tContinue = "Continue";
 

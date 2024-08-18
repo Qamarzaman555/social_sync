@@ -25,7 +25,10 @@ class FriendChatBubble extends StatelessWidget {
           color: AppColors.secondary,
         ),
         child: Text(messageObject.message,
-            style: Theme.of(context).textTheme.labelMedium),
+            style: Theme.of(context)
+                .textTheme
+                .labelMedium!
+                .apply(color: Colors.white)),
       ),
     );
   }
