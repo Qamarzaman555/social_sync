@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:social_sync/utils/constants/data.dart';
 import 'package:video_player/video_player.dart';
 
 class LessonController extends GetxController {
@@ -17,7 +16,8 @@ class LessonController extends GetxController {
   }
 
   Future<void> asyncPostLessonData() async {
-    var url = DummyData.videos[0];
+    var url =
+        "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4";
     videoController = VideoPlayerController.networkUrl(Uri.parse(url));
 
     videoController?.addListener(_videoPlayerListener);

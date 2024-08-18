@@ -4,6 +4,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:video_player/video_player.dart';
 
 import '../../../../../utils/constants/sizes.dart';
+import '../../../../../utils/helpers/helper_functions.dart';
 import '../../../controllers/video_player_controller.dart';
 
 class VideoPlayerScreen extends StatelessWidget {
@@ -11,6 +12,7 @@ class VideoPlayerScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dark = AppHelperFunctions.isDarkMode(context);
     final LessonController controller = Get.put(LessonController());
 
     return ClipRRect(
@@ -37,8 +39,18 @@ class VideoPlayerScreen extends StatelessWidget {
                       }
                       controller.isPlay.value = !controller.isPlay.value;
                     },
-                    icon: Icon(
-                      controller.isPlay.value ? Iconsax.pause : Iconsax.play,
+                    icon: Card(
+                      color: Colors.black12,
+                      shape: const CircleBorder(),
+                      child: Padding(
+                        padding: const EdgeInsets.all(AppSizes.cardRadiusXs),
+                        child: Icon(
+                          controller.isPlay.value
+                              ? Iconsax.pause
+                              : Iconsax.play,
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
                   ),
                 ),

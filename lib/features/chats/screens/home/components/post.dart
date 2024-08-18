@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../utils/constants/sizes.dart';
+import '../../../../../utils/helpers/helper_functions.dart';
 import 'post_footer.dart';
 import 'post_herder.dart';
-
 
 class Post extends StatelessWidget {
   const Post({
@@ -15,9 +15,10 @@ class Post extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dark = AppHelperFunctions.isDarkMode(context);
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white38,
+        color: dark ? Colors.white24 : Colors.black12,
         borderRadius: BorderRadius.circular(AppSizes.cardRadiusSm * 1.6),
       ),
       padding: const EdgeInsets.symmetric(
