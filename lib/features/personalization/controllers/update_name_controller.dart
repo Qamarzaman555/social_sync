@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../data/repositories/user/user_repository.dart';
-import '../../../navigation_menu.dart';
 import '../../../utils/constants/image_strings.dart';
 import '../../../utils/helpers/network_manager.dart';
 import '../../../utils/popups/full_screen_loader.dart';
 import '../../../utils/popups/loaders.dart';
+import '../screens/profile/profile.dart';
 import 'user_controller.dart';
 
 class UpdateNameController extends GetxController {
@@ -65,7 +65,7 @@ class UpdateNameController extends GetxController {
               title: 'Congratulations', message: 'Your Name has been updated.');
 
           // Move to previous screen
-          Get.offAll(() => const NavigationMenu());
+          Get.offAll(() => const ProfileScreen());
         } else {
           // Form is not valid so return to update name screen
           // Remove Loader

@@ -4,7 +4,6 @@ import '../../../../utils/constants/sizes.dart';
 import 'components/home_appbar.dart';
 import 'components/post.dart';
 
-import 'components/post_video_player.dart';
 import 'components/posts_media.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -30,7 +29,7 @@ class HomeScreen extends StatelessWidget {
                         SizedBox(height: AppSizes.spaceBtwSections),
 
                         /// Post 2
-                        Post(post: VideoPlayerScreen()),
+                        // Post(post: VideoPlayerScreen()),
                       ],
                     ),
                   ),

@@ -4,7 +4,6 @@ import 'package:iconsax/iconsax.dart';
 import 'package:video_player/video_player.dart';
 
 import '../../../../../utils/constants/sizes.dart';
-import '../../../../../utils/helpers/helper_functions.dart';
 import '../../../controllers/video_player_controller.dart';
 
 class VideoPlayerScreen extends StatelessWidget {
@@ -12,7 +11,6 @@ class VideoPlayerScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dark = AppHelperFunctions.isDarkMode(context);
     final LessonController controller = Get.put(LessonController());
 
     return ClipRRect(
