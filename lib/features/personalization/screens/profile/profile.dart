@@ -6,10 +6,10 @@ import '../../../../common/widgets/appbar/appbar.dart';
 import '../../../../common/widgets/images/circular_image.dart';
 import '../../../../common/widgets/shimmers/shimmer.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
+import '../../../../navigation_menu.dart';
 import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../controllers/user_controller.dart';
-import '../settings/settings.dart';
 import 'components/change_name.dart';
 import 'components/profile_menu.dart';
 
@@ -22,7 +22,7 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppAppBar(
           leadingIcon: Iconsax.arrow_left,
-          leadingOnPressed: () => Get.off(() => const SettingsScreen()),
+          leadingOnPressed: () => Get.off(() => const NavigationMenu()),
           title: Text('Profile',
               style: Theme.of(context).textTheme.headlineSmall)),
 
