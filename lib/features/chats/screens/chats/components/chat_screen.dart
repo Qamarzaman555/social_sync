@@ -14,7 +14,7 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final chatController = Get.put(ChatController());
+    final chatController = Get.put(ChatController(user.id));
 
     return Scaffold(
       body: Container(
@@ -49,7 +49,7 @@ class ChatScreen extends StatelessWidget {
                           horizontal: 16, vertical: 12),
                       itemBuilder: (context, index) {
                         final message = chatController.messageList[index];
-                        return message.uid ==
+                        return message.receiverId ==
                                 FirebaseAuth.instance.currentUser!.uid
                             ? FriendChatBubble(messageObject: message)
                             : ChatBubble(messageObject: message);
@@ -62,7 +62,7 @@ class ChatScreen extends StatelessWidget {
             ChatInputField(
               controller: chatController.messageController,
               onTap: (value) {
-                chatController.sendMessage(value!);
+                chatController.sendMessage(value!, user.id);
               },
             ),
           ],

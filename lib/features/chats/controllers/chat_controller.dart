@@ -5,7 +5,9 @@ import 'package:get/get.dart';
 import '../models/message_bubble.model.dart';
 
 class ChatController extends GetxController {
-  final messages = FirebaseFirestore.instance.collection('messages');
+  ChatController(this.recieverId);
+  final String recieverId;
+  final messagesCollection = FirebaseFirestore.instance.collection('messages');
   final messageList = <MessageBubbleModel>[].obs;
   final scrollController = ScrollController();
   final messageController = TextEditingController();
@@ -13,34 +15,65 @@ class ChatController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    fetchMessages();
+    fetchMessages(receiverId: recieverId);
   }
 
-  void fetchMessages() {
-    messages
-        .orderBy('createdAt', descending: true)
-        .snapshots()
-        .listen((snapshot) {
-      messageList.clear();
-      for (var doc in snapshot.docs) {
-        messageList.add(MessageBubbleModel.fromJson(doc));
-      }
-    });
-  }
+  void fetchMessages({required String receiverId}) {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      final conversationId = _getConversationId(receiverId, user.uid);
 
-  void sendMessage(String value) {
-    if (value.isNotEmpty) {
-      messages.add({
-        'message': value,
-        'createdAt': DateTime.now(),
-        'uid': FirebaseAuth.instance.currentUser!.uid,
+      messagesCollection
+          .doc(conversationId)
+          .collection('chats') // Sub-collection to store individual messages
+          .orderBy('createdAt', descending: true)
+          .snapshots()
+          .listen((snapshot) {
+        messageList.clear();
+        for (var doc in snapshot.docs) {
+          messageList.add(MessageBubbleModel.fromJson(doc.data()));
+        }
       });
-      messageController.clear();
-      scrollController.animateTo(
-        0,
-        duration: const Duration(seconds: 1),
-        curve: Curves.fastOutSlowIn,
-      );
+    }
+  }
+
+  void sendMessage(String value, String receiverId) {
+    if (value.isNotEmpty) {
+      final user = FirebaseAuth.instance.currentUser;
+      if (user != null) {
+        final message = MessageBubbleModel(
+          message: value,
+          receiverId: receiverId,
+          senderId: user.uid,
+        );
+
+        final conversationId = _getConversationId(receiverId, user.uid);
+
+        messagesCollection
+            .doc(conversationId)
+            .collection(
+                'chats') // Storing each message as a document in the 'chats' sub-collection
+            .add({
+          ...message.toJson(),
+          'createdAt': DateTime.now(),
+        });
+
+        messageController.clear();
+        scrollController.animateTo(
+          0,
+          duration: const Duration(seconds: 1),
+          curve: Curves.fastOutSlowIn,
+        );
+      }
+    }
+  }
+
+  // Helper function to generate a unique conversation ID
+  String _getConversationId(String receiverId, String senderId) {
+    if (receiverId.compareTo(senderId) < 0) {
+      return receiverId + senderId;
+    } else {
+      return senderId + receiverId;
     }
   }
 }
